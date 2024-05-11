@@ -30,6 +30,11 @@ jobs:
           name: java-app
           path: '${{ github.workspace }}/target/*.jar'
 
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v3
+        with:
+          languages: 'java'
+
       - name: Run CodeQL Analysis
         uses: github/codeql-action/analyze@v3
         with:
