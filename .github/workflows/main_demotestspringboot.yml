@@ -16,6 +16,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Create SARIF directory
+        run: mkdir -p /home/runner/work/spring-azure-demo/spring-azure-demo
+
       - name: Set up Java version
         uses: actions/setup-java@v1
         with:
@@ -42,7 +45,7 @@ jobs:
       - name: Run CodeQL Analysis
         uses: github/codeql-action/analyze@v3
         with:
-          languages: 'java-kotlin'
+          languages: 'java'
           build-mode: 'none'
 
       - name: Upload CodeQL Analysis Results
