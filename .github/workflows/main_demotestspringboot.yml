@@ -12,6 +12,12 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      # required for all workflows
+      security-events: write
+      # only required for workflows in private repositories
+      actions: read
+      contents: read
 
     steps:
       - uses: actions/checkout@v4
@@ -45,11 +51,14 @@ jobs:
           languages: 'java'
           build-mode: 'none'
 
-      - name: Upload CodeQL Analysis Results
+      - name: Upload SARIF file
         uses: github/codeql-action/upload-sarif@v3
         with:
-            # Path to the SARIF file produced by the analysis
-            sarif_file: /github/workspace/codeql-results.sarif
+            # Path to SARIF file relative to the root of the repository
+          sarif_file: results.sarif
+            # Optional category for the results
+            # Used to differentiate multiple results for one commit
+          category: my-analysis-tool
 
   deploy:
     runs-on: ubuntu-latest
