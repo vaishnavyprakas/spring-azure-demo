@@ -11,7 +11,7 @@ public class SpringAzureDemoApplication {
 
 	@GetMapping()
 	public String message(){
-		return "Congrats ! your application deployed successfully in Azure Platform. This is the demo for java testing and codequality check !";
+		return "Congrats ! your application deployed successfully in Azure Platform. This is the demo for java testing and codequality check!";
 	}
 
 	public static void main(String[] args) {
