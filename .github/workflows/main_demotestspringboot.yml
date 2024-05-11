@@ -17,7 +17,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Create SARIF directory
-        run: mkdir -p /home/runner/work/spring-azure-demo/spring-azure-demo
+        run: mkdir -p /home/runner/work/spring-azure-demo/spring-azure-demo/codeql-results.sarif
 
       - name: Set up Java version
         uses: actions/setup-java@v1
