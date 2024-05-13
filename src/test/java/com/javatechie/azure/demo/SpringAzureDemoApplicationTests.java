@@ -7,15 +7,10 @@ import org.springframework.boot.test.context.SpringBootTest;
 class SpringAzureDemoApplicationTests {
 
 	@Test
-	void contextLoads() {
-        // Arrange
-        SpringAzureDemoApplication app = new SpringAzureDemoApplication();
-
-        // Act
-        String result = app.message();
-
-        // Assert
-        assertEquals("Congrats ! your application deployed successfully in Azure Platform.", result);
+	public void contextLoads() {
+	        SpringAzureDemoApplication app = new SpringAzureDemoApplication();
+	        String result = app.message();
+	        assertEquals("Congrats ! your application deployed successfully in Azure Platform.", result);
 	}
 
 }
