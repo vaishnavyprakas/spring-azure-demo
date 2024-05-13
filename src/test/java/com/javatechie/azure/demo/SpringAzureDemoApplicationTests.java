@@ -1,15 +1,13 @@
 package com.javatechie.azure.demo;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-public class SpringAzureDemoApplicationTests {
+class SpringAzureDemoApplicationTests {
 
-    @Test
-    public void testMessage() {
+	@Test
+	void contextLoads() {
         // Arrange
         SpringAzureDemoApplication app = new SpringAzureDemoApplication();
 
@@ -18,5 +16,6 @@ public class SpringAzureDemoApplicationTests {
 
         // Assert
         assertEquals("Congrats ! your application deployed successfully in Azure Platform.", result);
-    }
+	}
+
 }
