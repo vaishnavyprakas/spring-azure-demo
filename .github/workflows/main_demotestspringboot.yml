@@ -60,5 +60,5 @@ jobs:
         with:
           app-name: 'demospringjavaboot'
           slot-name: 'Production'
-          package: 'java-app'
+          package: 'spring-azure-demo.jar'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE }}
