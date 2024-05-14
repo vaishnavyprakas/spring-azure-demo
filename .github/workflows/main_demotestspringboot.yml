@@ -27,8 +27,11 @@ jobs:
       - name: Unit Testing
         run: mvn test
         
-      - name: Build with Maven
-        run: mvn clean install
+      - name: Build with Maven and Run SonarCloud analysis
+        run: mvn clean verify sonar:sonar
+        env:
+          TOKEN_GITHUB: ${{ secrets.TOKEN_GITHUB }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
@@ -36,23 +39,6 @@ jobs:
           name: java-app
           path: '${{ github.workspace }}/target/*.jar'
 
-      - name: Initialize CodeQL
-        uses: github/codeql-action/init@v3
-        with:
-          languages: 'java'
-          build-mode: 'none'
-
-      - name: Run CodeQL Analysis
-        uses: github/codeql-action/analyze@v3
-        with:
-          languages: 'java'
-          build-mode: 'none'
-
-      - name: Upload SARIF file
-        uses: github/codeql-action/upload-sarif@v3
-        with:
-          sarif_file: /home/runner/work/spring-azure-demo/results/java.sarif
-          category: my-analysis-tool
         
 
   deploy:
