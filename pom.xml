@@ -14,7 +14,15 @@
 	<name>spring-azure-demo</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
-		<java.version>1.8</java.version>
+		        <java.version>11</java.version>
+		        <!-- SonarCloud properties -->
+		        <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+		        <sonar.organization>vaishnavyprakas</sonar.organization>
+		        <sonar.projectKey>vaishnavyprakas_spring-azure-demo</sonar.projectKey>
+		        <sonar.sources>src/main</sonar.sources>
+		        <sonar.tests>src/test</sonar.tests>
+		        <!-- Excludes Python files from SonarCloud analysis -->
+		        <sonar.exclusions>**/*.py</sonar.exclusions>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -64,5 +72,20 @@
 			
 		</plugins>
 	</build>
+    <!-- Add SonarCloud analysis as an execution in the Maven lifecycle -->
+    <profiles>
+        <profile>
+            <id>sonar</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.sonarsource.scanner.maven</groupId>
+                        <artifactId>sonar-maven-plugin</artifactId>
+                        <version>3.9.0.2155</version>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 
 </project>
