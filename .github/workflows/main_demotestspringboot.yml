@@ -7,8 +7,8 @@ on:
   push:
     branches:
       - develop
-    # paths:
-    #   - 'spring-azure-demo/**'  # Adjust this path to match the folder containing your Java application
+    paths:
+      - 'C:/Users/vaishnavy.prakas/Desktop/New folder/hello-world-java-testing/spring-azure-demo/**'  # Adjust this path to match the folder containing your Java application
 
 
 jobs:
