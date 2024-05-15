@@ -8,7 +8,7 @@ on:
     branches:
       - develop
     paths:
-      - '/**'  # Adjust this path to match the folder containing your Java application
+      - 'C:/Users/vaishnavy.prakas/Desktop/New folder/hello-world-java-testing/spring-azure-demo/**'  # Adjust this path to match the folder containing your Java application
 
 
 jobs:
