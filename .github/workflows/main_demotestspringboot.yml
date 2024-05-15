@@ -6,7 +6,10 @@ name: Build and deploy JAR app to Azure Web App - demotestspringboot
 on:
   push:
     branches:
-      - master
+      - develop
+    paths:
+      - 'spring-azure-demo/**'  # Adjust this path to match the folder containing your Java application
+  
 
 jobs:
   build:
