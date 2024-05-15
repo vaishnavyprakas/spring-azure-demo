@@ -5,7 +5,7 @@ on:
     branches:
       - develop
     paths:
-      - 'C:/Users/vaishnavy.prakas/Desktop/New folder/hello-world-java-testing/spring-azure-demo/terraform-code/**'  # Adjust this path to match the folder containing your Terraform scripts
+      - 'terraform-code/**'  # Adjust this path to match the folder containing your Terraform scripts
 
 jobs:
   terraform:
