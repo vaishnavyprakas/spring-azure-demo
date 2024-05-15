@@ -33,6 +33,9 @@ jobs:
           TOKEN_GITHUB: ${{ secrets.TOKEN_GITHUB }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
+      - name: Rename JAR file
+        run: mv target/*.jar target/my-app.jar
+
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
         with:
@@ -60,5 +63,5 @@ jobs:
         with:
           app-name: 'demospringjavaboot'
           slot-name: 'Production'
-          package: 'spring-azure-demo.jar'
+          package: 'target/my-app.jar'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE }}
