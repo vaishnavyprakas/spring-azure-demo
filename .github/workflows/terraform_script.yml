@@ -27,3 +27,9 @@ jobs:
           ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
           ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
           ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
+
+      - name: Install 7zip
+        run: choco install 7zip --yes
+  
+      - name: Extract Archive with 7zip
+        run: 7z x path-to-your-archive -ooutput-directory
