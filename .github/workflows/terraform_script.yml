@@ -14,6 +14,12 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Install 7zip
+        run: choco install 7zip --yes
+
+      - name: Extract Archive with 7zip
+        run: 7z x path-to-your-archive -ooutput-directory
+
       - name: Set up Terraform
         uses: hashicorp/setup-terraform@v1
 
@@ -28,8 +34,3 @@ jobs:
           ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
           ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
 
-      - name: Install 7zip
-        run: choco install 7zip --yes
-  
-      - name: Extract Archive with 7zip
-        run: 7z x path-to-your-archive -ooutput-directory
