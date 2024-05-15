@@ -7,8 +7,8 @@ on:
   push:
     branches:
       - develop
-    paths:
-      - '/**'  # Adjust this path to match the folder containing your Java application
+    # paths:
+    #   - '/**'  # Adjust this path to match the folder containing your Java application
 
 
 jobs:
