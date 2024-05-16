@@ -11,7 +11,7 @@ public class SpringAzureDemoApplication {
 
 	@GetMapping()
 	public String message(){
-		return "Congrats ! your application deployed successfully in Azure Platform with private network access";
+		return "Congrats ! your application deployed successfully in Azure Platform with private network access.Hi!!";
 	}
 
 	public static void main(String[] args) {
