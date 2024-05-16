@@ -11,7 +11,9 @@ class SpringAzureDemoApplicationTests {
 	public void contextLoads() {
 	        SpringAzureDemoApplication app = new SpringAzureDemoApplication();
 	        String result = app.message();
+
 	        assertEquals("Congrats ! your application deployed successfully in Azure Platform with private network access.", result);
+
 	}
 
 }
