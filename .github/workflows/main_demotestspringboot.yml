@@ -37,8 +37,8 @@ jobs:
           TOKEN_GITHUB: ${{ secrets.TOKEN_GITHUB }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
-      # - name: Rename JAR file
-      #   run: mv target/*.jar target/my-app.jar
+      - name: Rename JAR file
+        run: mv target/*.jar target/my-app.jar
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
@@ -67,5 +67,5 @@ jobs:
         with:
           app-name: 'testprodwebapp'
           slot-name: 'Production'
-          package: '*.jar'
+          package: 'target/my-app.jar'
           publish-profile: ${{ secrets.TFPUBLISH_PROFILE }}
