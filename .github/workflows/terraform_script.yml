@@ -13,10 +13,20 @@ jobs:
     runs-on: self-hosted
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Azure Login
+        run: az login
+        env:
+          AZURE_SERVICE_PRINCIPAL_CLIENT_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
+          AZURE_SERVICE_PRINCIPAL_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
+          AZURE_SERVICE_PRINCIPAL_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
 
       - name: Set up Terraform
         uses: hashicorp/setup-terraform@v1
+        with:
+          terraform_version: 1.2.0
 
       - name: Change directory to terraform-code
         run: cd terraform-code
