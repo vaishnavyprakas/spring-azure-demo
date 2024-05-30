@@ -7,9 +7,10 @@ on:
   push:
     branches:
       - develop
-    # paths:
-    #   - '/**'  # Adjust this path to match the folder containing your Java application
-
+    paths:
+      - 'java-code/**'
+      - 'pom.xml'
+      - '.github/workflows/main_demotestspringboot.yml'
 
 jobs:
   build:

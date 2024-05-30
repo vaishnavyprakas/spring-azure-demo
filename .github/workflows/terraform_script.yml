@@ -5,7 +5,8 @@ on:
     branches:
       - develop
     paths:
-      - 'terraform-code/**'  # Adjust this path to match the folder containing your Terraform scripts
+      - 'terraform-code/**'
+      - '.github/workflows/terraform_script.yml'
 
 jobs:
   terraform:
@@ -14,26 +15,27 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Install Chocolatey
-        run: |
-          Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
-
-      - name: Install 7zip
-        run: choco install 7zip --yes
-
       - name: Set up Terraform
         uses: hashicorp/setup-terraform@v1
 
-      - name: Initialize Terraform
+     - name: Change directory to terraform-code
+        run: cd terraform-code
+
+      - name: Terraform Init
         run: terraform init
+        working-directory: terraform-code
 
-      - name: Apply Terraform
-        run: terraform apply -auto-approve
-        env:
-          ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
-          ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
-          ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
-          ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
+      - name: Terraform Plan
+        run: terraform plan
+        working-directory: terraform-code
 
-      - name: Extract Archive with 7zip
-        run: 7z x path-to-your-archive -ooutput-directory
+      # - name: Apply Terraform
+      #   run: terraform apply -auto-approve
+      #   working-directory: terraform-code
+      #   env:
+      #     ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
+      #     ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
+      #     ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
+      #     ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
+
+
