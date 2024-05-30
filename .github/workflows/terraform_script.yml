@@ -5,8 +5,8 @@ on:
     branches:
       - develop
     paths:
-      - 'terraform-code/**'
-      - '.github/workflows/terraform_script.yml'
+      - 'terraform-code\**'
+      - '.github\workflows\terraform_script.yml'
 
 jobs:
   terraform:
