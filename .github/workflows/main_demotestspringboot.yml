@@ -67,5 +67,5 @@ jobs:
         with:
           app-name: 'testprodwebapp'
           slot-name: 'Production'
-          package: 'target/my-app.jar'
+          package: '*.jar'
           publish-profile: ${{ secrets.TFPUBLISH_PROFILE }}
