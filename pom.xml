@@ -19,8 +19,8 @@
 		        <sonar.host.url>https://sonarcloud.io</sonar.host.url>
 		        <sonar.organization>vaishnavyprakas</sonar.organization>
 		        <sonar.projectKey>vaishnavyprakas_spring-azure-demo</sonar.projectKey>
-		        <sonar.sources>src/main</sonar.sources>
-		        <sonar.tests>src/test</sonar.tests>
+				<sonar.sources>java-code/src/main/java</sonar.sources>
+        		<sonar.tests>java-code/src/test</sonar.tests>  
 		        <!-- Excludes Python files from SonarCloud analysis -->
 		        <sonar.exclusions>**/*.py</sonar.exclusions>
 	</properties>
